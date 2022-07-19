@@ -1,41 +1,39 @@
 const content = document.querySelector('#content');
 
-// const createNav = (() => {
-//     const navBar = document.createElement('nav');
+const createNav = (() => {
+    const navbar = createElement("div", "navbar", 0, 0, " ");
 
-//     const nav_Logo = document.createElement('div');
-//     nav_Logo.classList.add("nav-logo");
-//     nav_Logo.textContent = "High Co.";
+    const navLogo = createElement("div", "nav-logo", 0, 0, "HIGH-CO.")
     
-//     const navL_1 = document.createElement('a');
-//     navL_1.setAttribute("href", "index.html");
-//     navL_1.textContent = "Home";
+    const navLink1 = createElement("a", "home-nav", "href", "index.html", "Home");
+    const navLink2 = createElement("a", "menu-nav", "href", "index.html", "Menu");
+    const navLink3 = createElement("a", "order-nav", "href", "index.html", "Order");
+    const navLink4 = createElement("a", "about-nav", "href", "index.html", "About");
 
-//     const navL_2 = document.createElement('a');
-//     navL_2.setAttribute("href", "index.html");
-//     navL_2.textContent = "Menu";
+    navbar.append(navLogo, navLink1, navLink2, navLink3, navLink4);
+    content.append(navbar);
+})();
 
-//     const navL_3 = document.createElement('a');
-//     navL_3.setAttribute("href", "index.html");
-//     navL_3.textContent = "Order";
+const createHome = () => {
+    const createHero = () => {
+        const heroSection = createElement("div", "hero-section", 0, 0, "");
+        const heroBg = createElement("img", 0, "src", "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "");
 
-//     const navL_4 = document.createElement('a');
-//     navL_4.setAttribute("href", "index.html");
-//     navL_4.textContent = "About Us";
+        heroSection.append(heroBg)
+        content.append(createHero);
+    };
 
-//     navBar.append(nav_Logo, navL_1, navL_2, navL_3, navL_4);
-//     navBar.classList.add('navbar');
+    createHero();
+}
 
-//     content.append(navBar);
-// })();
+createHome();
 
-// const createHome = () => {
-//     const createHero = (() => {
-//         const heroSection = document.createElement('div');
-//         heroSection.classList.add('hero-section');
-        
-
-//     })();
-// }
+function createElement (elName, elClass, elAttrSet, elAttrValue, elText) {
+    const el = document.createElement(elName);
+    if (elClass) el.classList.add(elClass)
+    if (elAttrSet && elAttrValue) el.setAttribute(elAttrSet, elAttrValue);
+    if (elText) el.textContent = elText;
+    return el;
+}
 
 
